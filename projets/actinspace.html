@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-9q54zQGx0QLxAz37SCGRptZ6wT4E+NPQuYOroxqmJtc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>ActInSpace — Aurélien Goumain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../skills/skills.css">
+</head>
+<body>
+
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AG</a>
+    <a href="../index.html#projets" class="nav-back"><span data-i18n="nav.back">← Retour</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="skill-page">
+
+  <div class="skill-page-header reveal-scale">
+    <div class="skill-page-icon">🚀</div>
+    <div class="skill-page-tag" data-i18n-en="Project · 2026">Projet · 2026</div>
+    <h1 class="skill-page-title"><span data-i18n-en="ActInSpace">ActInSpace</span><br><span class="gradient-text" data-i18n-en="&quot;Coup de Cœur&quot; Award">Prix "Coup de Cœur"</span></h1>
+    <p class="skill-page-desc" data-i18n-en="International hackathon hosted by CNES and ESA. Together with my team we proposed a unified satellite-module connector standard, awarded the jury's &quot;Coup de Cœur&quot; prize.">
+      Hackathon international organisé par le CNES et l'ESA. En équipe, nous avons proposé
+      un standard de connecteur unifié pour modules satellites, récompensé par le prix
+      "Coup de Cœur" du jury.
+    </p>
+  </div>
+
+  <div class="skills-detail-grid">
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Context">Contexte</h2>
+        <div class="skill-detail-tool" data-i18n-en="CNES / ESA Hackathon">Hackathon CNES / ESA</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="ActInSpace is a worldwide hackathon co-organized by CNES and ESA, gathering student and young-engineer teams around real-world space-industry challenges. Edition 2026 took place at the Cité de l'Espace in Toulouse.">
+        ActInSpace est un hackathon mondial co-organisé par le CNES et l'ESA, réunissant des équipes
+        d'étudiants et de jeunes ingénieurs autour de défis liés à l'industrie spatiale.
+        Les participants disposent de 24h pour proposer une solution innovante à l'un des challenges
+        proposés par les agences spatiales.
+      </p>
+      <div class="skill-detail-tags">
+        <span>CNES</span><span>ESA</span><span>24h</span><span>Innovation spatiale</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Our Proposal">Notre Proposition</h2>
+        <div class="skill-detail-tool" data-i18n-en="Universal connector standard">Standard de connecteur universel</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Faced with the fragmentation of connection interfaces between satellite modules (each manufacturer imposing its own connectors), we proposed a unified standard inspired by USB-C: a single physical connector covering power, data, and thermal regulation between modules.">
+        Face à la fragmentation des interfaces de connexion entre modules satellites (chaque fabricant
+        imposant ses propres connecteurs), nous avons proposé un <strong>standard de connecteur universel
+        pour CubeSats et modules satellites</strong>, directement inspiré du succès de l'USB-C dans
+        l'électronique grand public.<br><br>
+        L'idée : réduire drastiquement le coût d'intégration, simplifier les échanges entre équipes
+        et accélérer le développement de constellations modulaires.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Standardisation</span><span>CubeSat</span><span>Interopérabilité</span><span>Inspiré USB-C</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Result">Résultat</h2>
+        <div class="skill-detail-tool" data-i18n-en="Jury&apos;s &quot;Coup de Cœur&quot; Award">Prix "Coup de Cœur" du jury</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Our project was awarded the <strong>&quot;Coup de Cœur&quot;</strong> jury prize, recognizing the relevance of the identified problem and the clarity of the proposed solution." data-i18n-html>
+        Notre projet a été récompensé par le prix <strong>"Coup de Cœur"</strong> du jury, distinguant
+        la pertinence de la problématique identifiée et la clarté de la solution proposée.
+        L'expérience m'a permis de travailler sous pression en équipe pluridisciplinaire, de structurer
+        rapidement une idée en pitch convaincant et de défendre un concept technique devant un jury d'experts.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Prix jury</span><span>Pitch</span><span>Travail en équipe</span><span>Gestion du temps</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="related-section reveal-scale">
+    <h2 class="related-title" data-i18n-en="Skills Used">Compétences mobilisées</h2>
+    <div class="related-grid">
+      <a href="../skills/softskills.html" class="related-card">
+        <span class="related-icon">🤝</span>
+        <div>
+          <div class="related-name">Soft Skills</div>
+          <div class="related-tech">Travail en équipe · Gestion du stress · Pédagogie</div>
+        </div>
+      </a>
+      <a href="../skills/softskills.html" class="related-card">
+        <span class="related-icon">📋</span>
+        <div>
+          <div class="related-name">Management de Projet</div>
+          <div class="related-tech">Organisation · Priorisation · Présentation</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/scroll-float.js"></script>
+</body>
+</html>

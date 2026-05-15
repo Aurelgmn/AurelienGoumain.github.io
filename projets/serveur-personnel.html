@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serveur Personnel - Aurélien Goumain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../skills/skills.css">
+</head>
+<body>
+
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AG</a>
+    <a href="../index.html#projets" class="nav-back"><span data-i18n="nav.back">← Retour</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="skill-page">
+
+  <div class="skill-page-header reveal-scale">
+    <div class="skill-page-icon">🍓</div>
+    <div class="skill-page-tag" data-i18n-en="Project · 2024">Projet · 2024</div>
+    <h1 class="skill-page-title"><span data-i18n-en="Personal Server">Serveur Personnel</span><br><span class="gradient-text" data-i18n-en="Automations & Self-Hosting">Automatisations & Self-Hosting</span></h1>
+    <p class="skill-page-desc" data-i18n-en="Services hosted on a Raspberry Pi via Docker: n8n automation workflows, Python scripts, REST API integration, and full network administration.">
+      Hébergement de services sur Raspberry Pi via Docker : workflows d'automatisation n8n,
+      scripts Python, intégration d'APIs REST et administration réseau complète.
+    </p>
+  </div>
+
+  <div class="skills-detail-grid">
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Infrastructure">Infrastructure</h2>
+        <div class="skill-detail-tool">Raspberry Pi · Docker · Linux</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Setup of a home server on Raspberry Pi 4 running Raspberry Pi OS (Debian). Deployment and orchestration of several services via <strong>Docker Compose</strong>: each service runs in an isolated container with its own configuration." data-i18n-html>
+        Mise en place d'un serveur domestique sur Raspberry Pi 4 sous Raspberry Pi OS (Debian).
+        Déploiement et orchestration de plusieurs services via <strong>Docker Compose</strong> :
+        isolation des services, gestion des volumes persistants, des réseaux internes et des
+        variables d'environnement sensibles.<br><br>
+        Configuration d'un reverse proxy (Nginx) pour exposer les services via HTTPS avec
+        certificats Let's Encrypt, et gestion des règles de pare-feu.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Raspberry Pi</span><span>Docker Compose</span><span>Nginx</span><span>Let's Encrypt</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="n8n Automations">Automatisations n8n</h2>
+        <div class="skill-detail-tool" data-i18n-en="Workflow automation">Workflow automation</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Deployment of <strong>n8n</strong> (open-source automation tool) to build no-code workflows connecting different services together: webhooks, scheduled triggers, API calls, conditional logic, error handling." data-i18n-html>
+        Déploiement de <strong>n8n</strong> (outil d'automatisation open-source) pour construire
+        des workflows sans code connectant différents services entre eux. Exemples de workflows :
+        notifications automatiques, synchronisation de données entre APIs, alertes conditionnelles,
+        pipelines de traitement de données déclenchés par webhooks.<br><br>
+        Maîtrise de la logique de branchement, des transformations JSON et de la gestion des erreurs.
+      </p>
+      <div class="skill-detail-tags">
+        <span>n8n</span><span>Webhooks</span><span>Workflows</span><span>JSON</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Python Scripts & APIs">Scripts Python & APIs</h2>
+        <div class="skill-detail-tool" data-i18n-en="REST API · HTTP · Automation">API REST · HTTP · Automatisation</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Development of Python scripts for more complex automations requiring business logic: REST API consumption with the <strong>requests</strong> library, JSON data handling, and integration with n8n via webhooks." data-i18n-html>
+        Développement de scripts Python pour des automatisations plus complexes nécessitant
+        de la logique métier : consommation d'APIs REST avec la librairie <code>requests</code>,
+        parsing et transformation de données JSON, authentification OAuth2 et gestion des tokens.<br><br>
+        Les scripts tournent sous forme de tâches planifiées (cron) ou sont déclenchés
+        via des webhooks exposés par n8n.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Python requests</span><span>OAuth2</span><span>Cron</span><span>REST API</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Network Administration">Administration réseau</h2>
+        <div class="skill-detail-tool" data-i18n-en="DNS · Ports · Security">DNS · Ports · Sécurité</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Configuration of secure remote access: port forwarding on the router, DNS configuration (custom domain), secure SSH access (keys, fail2ban), and reverse proxy (Traefik) to expose services via HTTPS." data-i18n-html>
+        Configuration de l'accès distant sécurisé : redirection de ports sur le routeur,
+        configuration DNS (domaine custom), accès SSH sécurisé (clés, fail2ban).
+        Monitoring des services avec alertes en cas d'arrêt inopiné.<br><br>
+        Ce projet m'a permis de développer une compréhension concrète du réseau TCP/IP,
+        des protocoles HTTP/HTTPS et des bonnes pratiques de sécurité serveur.
+      </p>
+      <div class="skill-detail-tags">
+        <span>SSH</span><span>DNS</span><span>TCP/IP</span><span>Sécurité</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="related-section reveal-scale">
+    <h2 class="related-title" data-i18n-en="Skills Used">Compétences mobilisées</h2>
+    <div class="related-grid">
+      <a href="../skills/programmation.html" class="related-card">
+        <span class="related-icon">💻</span>
+        <div>
+          <div class="related-name">Programmation & Outils</div>
+          <div class="related-tech">Docker · API REST · Python · Linux</div>
+        </div>
+      </a>
+      <a href="../skills/softskills.html" class="related-card">
+        <span class="related-icon">🤝</span>
+        <div>
+          <div class="related-name">Soft Skills</div>
+          <div class="related-tech">Autonomie · Auto-formation</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/scroll-float.js"></script>
+</body>
+</html>

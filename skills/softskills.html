@@ -2,7 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-9q54zQGx0QLxAz37SCGRptZ6wT4E+NPQuYOroxqmJtc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <title>Soft Skills — Aurélien Goumain</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
@@ -11,27 +15,42 @@
 </head>
 <body>
 
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
 <nav>
   <div class="nav-inner">
     <a href="../index.html" class="nav-logo">AG</a>
-    <a href="../index.html#competences" class="nav-back">← Retour</a>
+    <a href="../index.html#competences" class="nav-back"><span data-i18n="nav.back">← Retour</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
   </div>
 </nav>
-
-<div class="particles">
-  <div class="particle"></div><div class="particle"></div>
-  <div class="particle"></div><div class="particle"></div>
-  <div class="particle"></div>
-</div>
 
 <main class="skill-page">
 
   <!-- Header -->
   <div class="skill-page-header reveal-scale">
     <div class="skill-page-icon">🤝</div>
-    <div class="skill-page-tag">Compétences</div>
-    <h1 class="skill-page-title">Soft<br><span class="gradient-text">Skills</span></h1>
-    <p class="skill-page-desc">
+    <div class="skill-page-tag" data-i18n-en="Skills">Compétences</div>
+    <h1 class="skill-page-title"><span data-i18n-en="Soft">Soft</span><br><span class="gradient-text" data-i18n-en="Skills">Skills</span></h1>
+    <p class="skill-page-desc" data-i18n-en="Beyond technical skills, human qualities shaped by varied experiences: school projects, entrepreneurship, teaching, and preparatory classes.">
       Au-delà des compétences techniques, des qualités humaines forgées par des expériences
       variées : projets d'école, entrepreneuriat, enseignement et classes préparatoires.
     </p>
@@ -42,16 +61,9 @@
 
     <div class="skill-detail-card reveal-left">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Travail en équipe</h2>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="Teamwork">Travail en équipe</h2>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Used to working on technical group projects at Polytech Montpellier, with task distribution, code reviews, and regular milestones. Ability to adapt to different roles depending on the project.">
         Habitué aux projets techniques en groupe à Polytech Montpellier, avec répartition des tâches,
         revues de code et jalons réguliers. Capacité à m'adapter aux dynamiques d'équipe,
         à faire remonter les blocages et à contribuer activement à la progression collective.
@@ -63,16 +75,9 @@
 
     <div class="skill-detail-card reveal-right">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Autonomie</h2>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="Autonomy">Autonomie</h2>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Fully autonomous creation and management of an end-to-end e-commerce store: design, outsourcing, marketing, accounting. Ability to self-train on new domains (web development, marketing, accounting).">
         Création et gestion entièrement autonome d'une boutique e-commerce de A à Z :
         design, sous-traitance, marketing, comptabilité. Capacité à me former seul
         sur de nouveaux outils (Shopify, Google Ads, logiciels de design) et à
@@ -85,16 +90,9 @@
 
     <div class="skill-detail-card reveal-left">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Pédagogie</h2>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="Teaching">Pédagogie</h2>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Private tutor in science subjects for middle-school students. Ability to adapt explanations to the student's level and profile, identify conceptual blockers, and build clear progressive pedagogy.">
         Professeur particulier en sciences pour collégiens. Savoir adapter son discours
         au niveau et au profil de l'élève, identifier les blocages conceptuels et
         trouver des analogies concrètes. Résultats mesurables : progression notable
@@ -107,16 +105,9 @@
 
     <div class="skill-detail-card reveal-right">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Curiosité & Veille</h2>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="Curiosity & Tech Watch">Curiosité & Veille</h2>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Strong interest in new technologies (AI, IoT, semiconductors) and regular tech-news monitoring (blogs, academic publications, conferences). Continuous self-learning on topics outside the curriculum.">
         Intérêt marqué pour les nouvelles technologies (IA, IoT, semiconducteurs) et
         suivi régulier de l'actualité tech (blogs, publications académiques, conférences).
         Cette curiosité me pousse à explorer des domaines connexes à ma formation
@@ -129,16 +120,9 @@
 
     <div class="skill-detail-card reveal-left">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Gestion du stress</h2>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="Stress Management">Gestion du stress</h2>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Two years of CUPGE (intensive preparatory program) built resilience under pressure, priority management under time constraints, and the ability to keep going under sustained workload.">
         2 ans de CUPGE (classes préparatoires universitaires) ont forgé une résistance
         à la pression, une gestion des priorités sous contrainte temporelle et la capacité
         à maintenir la rigueur dans des situations de forte charge de travail.
@@ -148,10 +132,46 @@
       </div>
     </div>
 
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Project Management">Management de Projet</h2>
+        <div class="skill-detail-tool" data-i18n-en="Agile / Gantt">Agile / Gantt</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Technical project planning with Gantt charts, work breakdown, and progress tracking. Risk management and technical documentation. Hands-on experience leading the brand-creation and personal-server projects.">
+        Planification de projets techniques avec diagramme de Gantt, découpage en lots et
+        suivi d'avancement. Gestion des risques et documentation technique. Expérience
+        des méthodes agiles (sprints, rétrospectives) appliquées aux projets de Polytech.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Gantt</span><span>Agile</span><span>Documentation</span><span>Gestion des risques</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="English">Anglais</h2>
+        <div class="skill-detail-tool" data-i18n-en="B2 level">Niveau B2</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Fluent reading of technical documentation and scientific publications in English. Writing of technical reports and professional communication in an international context (currently interning at the University of Twente, Netherlands).">
+        Lecture courante de documentation technique et de publications scientifiques en anglais.
+        Rédaction de rapports techniques et communication professionnelle. Mon CV est rédigé
+        en anglais et je suis capable de mener des entretiens et des réunions techniques
+        dans cette langue.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Lecture technique</span><span>Rédaction</span><span>Communication orale</span><span>CV en anglais</span>
+      </div>
+    </div>
+
   </div>
 
 </main>
 
 <script src="../assets/js/animations.js"></script>
+<script src="../assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/scroll-float.js"></script>
 </body>
 </html>

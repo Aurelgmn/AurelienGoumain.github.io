@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-9q54zQGx0QLxAz37SCGRptZ6wT4E+NPQuYOroxqmJtc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Montre à Actimétrie Post-AVC — Aurélien Goumain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../skills/skills.css">
+</head>
+<body>
+
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AG</a>
+    <a href="../index.html#projets" class="nav-back"><span data-i18n="nav.back">← Retour</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="skill-page">
+
+  <div class="skill-page-header reveal-scale">
+    <div class="skill-page-icon">⌚</div>
+    <div class="skill-page-tag" data-i18n-en="Project · 2024">Projet · 2024</div>
+    <h1 class="skill-page-title"><span data-i18n-en="Actimetry Watch">Montre à Actimétrie</span><br><span class="gradient-text" data-i18n-en="Post-Stroke">Post-AVC</span></h1>
+    <p class="skill-page-desc" data-i18n-en="Design of a connected watch for monitoring the motor activity of post-stroke patients: accelerometer, OLED display, PCB routing, and complete firmware.">
+      Conception d'une montre connectée pour le suivi de l'activité motrice de patients
+      post-AVC : accéléromètre, affichage OLED, routage PCB et firmware complet.
+    </p>
+  </div>
+
+  <div class="skills-detail-grid">
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Medical Context">Contexte médical</h2>
+        <div class="skill-detail-tool" data-i18n-en="Post-stroke monitoring">Suivi post-AVC</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="After a stroke, motor rehabilitation requires precise monitoring of the affected limb's activity. This project aimed to design a portable, low-cost device for continuously recording the user's actimetry (motion intensity) over the course of a day.">
+        Après un AVC, la rééducation motrice nécessite un suivi précis de l'activité du membre
+        affecté. Ce projet visait à concevoir un dispositif portable et autonome capable d'enregistrer
+        en continu les données d'accélération du poignet, pour aider les médecins à objectiver
+        la récupération motrice du patient entre les séances.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Médical</span><span>Wearable</span><span>Rééducation</span><span>Actimétrie</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Firmware & Sensors">Firmware & Capteurs</h2>
+        <div class="skill-detail-tool">Arduino · I2C · SPI</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Programming of a 3-axis accelerometer (I2C communication) for capturing motion data at a configurable frequency. Integration of an OLED display (SPI) to show real-time metrics (active time, average intensity). Power management for full-day battery autonomy.">
+        Programmation d'un accéléromètre 3 axes (communication I2C) pour la capture des données
+        de mouvement à fréquence configurable. Intégration d'un écran OLED pour l'affichage
+        en temps réel des métriques (activité, seuils, état batterie).<br><br>
+        Implémentation d'un mode basse consommation avec réveil sur interruption pour maximiser
+        l'autonomie de la batterie embarquée.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Accéléromètre</span><span>I2C</span><span>OLED</span><span>Basse consommation</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-left">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="PCB Design">Conception PCB</h2>
+        <div class="skill-detail-tool">KiCad</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Compact PCB routing under KiCad integrating the microcontroller, the accelerometer, the OLED display, the battery charging module, and the connectors. Constraints: small size for wrist wear, signal integrity, and ease of assembly.">
+        Routage d'un PCB compact sous KiCad intégrant le microcontrôleur, l'accéléromètre,
+        l'écran OLED, le module de recharge batterie et les connecteurs. Contraintes de
+        miniaturisation imposées par le format montre : placement optimisé, pistes fines
+        et gestion des plans de masse.<br><br>
+        Fabrication du PCB et soudure des composants CMS (reflow et fer à souder).
+      </p>
+      <div class="skill-detail-tags">
+        <span>KiCad</span><span>CMS</span><span>Routage</span><span>Soudure</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="Results">Résultats</h2>
+        <div class="skill-detail-tool" data-i18n-en="Working prototype">Prototype fonctionnel</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="The final prototype is a portable, working device, capable of continuously recording actimetry data and displaying it on the screen. Validation of the form factor and electrical autonomy.">
+        Le prototype final est un dispositif portable et fonctionnel, capable d'enregistrer
+        en continu les données d'actimétrie et de les afficher sur l'écran OLED embarqué.
+        L'autonomie atteinte en mode basse consommation est suffisante pour une journée de port.
+        Le projet a été présenté et validé dans le cadre de la formation Polytech.
+      </p>
+      <div class="skill-detail-tags">
+        <span>Prototype</span><span>Autonomie</span><span>Validation</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="related-section reveal-scale">
+    <h2 class="related-title" data-i18n-en="Skills Used">Compétences mobilisées</h2>
+    <div class="related-grid">
+      <a href="../skills/microelectronique.html" class="related-card">
+        <span class="related-icon">⚡</span>
+        <div>
+          <div class="related-name">Microélectronique & Automatique</div>
+          <div class="related-tech">PCB KiCad · Arduino · I2C / SPI</div>
+        </div>
+      </a>
+      <a href="../skills/programmation.html" class="related-card">
+        <span class="related-icon">💻</span>
+        <div>
+          <div class="related-name">Programmation & Outils</div>
+          <div class="related-tech">C · Arduino IDE · Embarqué</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/scroll-float.js"></script>
+</body>
+</html>

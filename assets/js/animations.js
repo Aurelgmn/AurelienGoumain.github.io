@@ -1,10 +1,13 @@
-// Scroll reveal animation
-const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate');
+// ===== Scroll reveal =====
+const revealElements = document.querySelectorAll(
+  '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate'
+);
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
     }
   });
 }, {
@@ -14,42 +17,64 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach((el) => revealObserver.observe(el));
 
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+// ===== Smooth scroll vers les ancres =====
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href.length <= 1) return;
+    const target = document.querySelector(href);
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
 
-// Animation des skill dots au scroll
-const skillDotStyle = document.createElement('style');
-skillDotStyle.textContent = `
-  .skill-dot.active {
-    animation: none;
-    transform: scale(0);
-    opacity: 0;
-  }
-`;
-document.head.appendChild(skillDotStyle);
+// ===== Barre de progression de scroll =====
+const scrollProgress = document.querySelector('.scroll-progress');
+if (scrollProgress) {
+  const updateProgress = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = progress + '%';
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+}
 
-const skillCards = document.querySelectorAll('.skill-card');
+// ===== Nav qui se compacte au scroll =====
+const navEl = document.querySelector('nav');
+if (navEl) {
+  const updateNav = () => {
+    if (window.scrollY > 40) navEl.classList.add('scrolled');
+    else navEl.classList.remove('scrolled');
+  };
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+}
 
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const dots = entry.target.querySelectorAll('.skill-dot.active');
-      dots.forEach((dot, index) => {
-        setTimeout(() => {
-          dot.style.animation = 'popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-        }, index * 80);
-      });
-      skillObserver.unobserve(entry.target);
-    }
+// ===== Glow qui suit la souris =====
+const cursorGlow = document.querySelector('.cursor-glow');
+if (cursorGlow && window.matchMedia('(hover: hover)').matches) {
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    cursorGlow.classList.add('active');
   });
-}, { threshold: 0.3 });
 
-skillCards.forEach((card) => skillObserver.observe(card));
+  document.addEventListener('mouseleave', () => {
+    cursorGlow.classList.remove('active');
+  });
+
+  const animateGlow = () => {
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    cursorGlow.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateGlow);
+  };
+  requestAnimationFrame(animateGlow);
+}

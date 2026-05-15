@@ -2,7 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-9q54zQGx0QLxAz37SCGRptZ6wT4E+NPQuYOroxqmJtc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <title>Microélectronique & Automatique — Aurélien Goumain</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
@@ -11,29 +15,45 @@
 </head>
 <body>
 
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
 <nav>
   <div class="nav-inner">
     <a href="../index.html" class="nav-logo">AG</a>
-    <a href="../index.html#competences" class="nav-back">← Retour</a>
+    <a href="../index.html#competences" class="nav-back"><span data-i18n="nav.back">← Retour</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
   </div>
 </nav>
-
-<div class="particles">
-  <div class="particle"></div><div class="particle"></div>
-  <div class="particle"></div><div class="particle"></div>
-  <div class="particle"></div>
-</div>
 
 <main class="skill-page">
 
   <!-- Header -->
   <div class="skill-page-header reveal-scale">
     <div class="skill-page-icon">⚡</div>
-    <div class="skill-page-tag">Compétences</div>
-    <h1 class="skill-page-title">Microélectronique<br><span class="gradient-text">& Automatique</span></h1>
-    <p class="skill-page-desc">
-      Domaine principal de ma formation à Polytech Montpellier. De la conception de circuits
-      à l'implémentation sur FPGA, en passant par le routage PCB et le traitement du signal.
+    <div class="skill-page-tag" data-i18n-en="Skills">Compétences</div>
+    <h1 class="skill-page-title"><span data-i18n-en="Microelectronics">Microélectronique</span><br><span class="gradient-text" data-i18n-en="& Automation">& Automatique</span></h1>
+    <p class="skill-page-desc" data-i18n-en="Main field of my training at Polytech Montpellier. From the design of analog integrated circuits (Xschem, Magic, SkyWater 130nm) to FPGA implementation, via PCB routing, STM32 embedded systems and signal processing.">
+      Domaine principal de ma formation à Polytech Montpellier. De la conception de circuits intégrés
+      analogiques (Xschem, Magic, SkyWater 130nm) à l'implémentation sur FPGA, en passant par le
+      routage PCB, les systèmes embarqués STM32 et le traitement du signal.
     </p>
   </div>
 
@@ -42,17 +62,26 @@
 
     <div class="skill-detail-card reveal-left">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Conception PCB</h2>
-        <div class="skill-detail-tool">KiCad</div>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="Analog IC Design">IC Design Analogique</h2>
+        <div class="skill-detail-tool">Xschem / Magic / SkyWater 130nm</div>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Analog integrated circuit design using only open-source EDA tools during an internship at LIRMM. Schematic in Xschem, layout in Magic, targeting the open-source SkyWater 130nm PDK. Submission via Tiny Tapeout for shared fabrication (~€500 vs ~€50,000 with proprietary tools).">
+        Conception d'un circuit intégré analogique en utilisant exclusivement des outils EDA open-source
+        lors d'un stage au LIRMM. Schématique sous Xschem, layout sous Magic, ciblant le PDK open-source
+        SkyWater 130nm. Soumission via Tiny Tapeout pour fabrication partagée (~500 € vs ~50 000 €
+        avec des outils propriétaires).
+      </p>
+      <div class="skill-detail-tags">
+        <span>Xschem</span><span>Magic</span><span>SkyWater 130nm PDK</span><span>Tiny Tapeout</span>
+      </div>
+    </div>
+
+    <div class="skill-detail-card reveal-right">
+      <div class="skill-detail-header">
+        <h2 class="skill-detail-name" data-i18n-en="PCB Design">Conception PCB</h2>
+        <div class="skill-detail-tool">KiCad</div>
+      </div>
+      <p class="skill-detail-desc" data-i18n-en="Schematic design and multilayer PCB routing. Experience gained on the post-stroke actimetry watch project: footprint definition, component placement, impedance constraint handling, and DRC/ERC validation.">
         Conception de schématiques et routage de PCB multicouches. Expérience acquise sur le projet
         de montre à actimétrie post-AVC : définition des empreintes, placement des composants,
         gestion des contraintes d'impédance et validation DRC/ERC.
@@ -64,17 +93,10 @@
 
     <div class="skill-detail-card reveal-right">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">FPGA</h2>
+        <h2 class="skill-detail-name" data-i18n-en="FPGA">FPGA</h2>
         <div class="skill-detail-tool">Quartus / Intel</div>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot"></div>
-        </div>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Digital logic implementation on FPGA in VHDL. Impedance measurement project: front-end design for a DAC and integration of a Delta-Sigma ADC for power-optimized measurement.">
         Implémentation de logique numérique sur FPGA en VHDL. Projet de mesure d'impédance :
         conception d'un front-end pour DAC et intégration d'un ADC Delta-Sigma pour une
         mesure optimisée en consommation énergétique.
@@ -86,39 +108,26 @@
 
     <div class="skill-detail-card reveal-left">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Arduino / Microcontrôleurs</h2>
-        <div class="skill-detail-tool">Arduino IDE / C</div>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-        </div>
+        <h2 class="skill-detail-name" data-i18n-en="STM32 / Microcontrollers">STM32 / Microcontrôleurs</h2>
+        <div class="skill-detail-tool">STM32CubeIDE / Arduino IDE / C</div>
       </div>
-      <p class="skill-detail-desc">
-        Programmation embarquée et interfaçage de capteurs/actionneurs. Protocoles de communication
-        I2C, SPI et UART maîtrisés. Projet montre post-AVC : pilotage d'un accéléromètre,
-        affichage sur écran OLED, gestion des interruptions et modes basse consommation.
+      <p class="skill-detail-desc" data-i18n-en="Low-level STM32 programming (CubeIDE, direct register manipulation) for precise closed-loop speed, torque, and position control (6-axis robotic arm). Also Arduino: accelerometer control, OLED display, I2C/SPI/UART protocols, interrupt handling, and low-power modes.">
+        Programmation bas niveau sur STM32 (CubeIDE, manipulation directe des registres) pour le contrôle
+        précis de vitesse, couple et positionnement en boucle fermée (bras robotique 6 axes).
+        Également Arduino : pilotage d'accéléromètre, affichage OLED, protocoles I2C/SPI/UART,
+        gestion des interruptions et modes basse consommation.
       </p>
       <div class="skill-detail-tags">
-        <span>I2C / SPI / UART</span><span>Capteurs</span><span>OLED</span><span>Interruptions</span>
+        <span>STM32 / Registres</span><span>I2C / SPI / UART</span><span>Arduino</span><span>Interruptions</span>
       </div>
     </div>
 
     <div class="skill-detail-card reveal-right">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Cadence</h2>
+        <h2 class="skill-detail-name" data-i18n-en="Cadence">Cadence</h2>
         <div class="skill-detail-tool">Cadence Virtuoso</div>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot"></div>
-          <div class="skill-dot"></div>
-        </div>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Analog integrated circuit design and simulation. Use of Virtuoso for cell drawing, SPICE simulation (DC, AC, transient), and stability margin analysis for operational amplifiers.">
         Conception et simulation de circuits analogiques intégrés. Utilisation de Virtuoso
         pour le dessin de cellules, simulation SPICE (DC, AC, transitoire) et analyse
         des marges de stabilité d'amplificateurs opérationnels.
@@ -130,17 +139,10 @@
 
     <div class="skill-detail-card reveal-left">
       <div class="skill-detail-header">
-        <h2 class="skill-detail-name">Traitement du Signal</h2>
+        <h2 class="skill-detail-name" data-i18n-en="Signal Processing">Traitement du Signal</h2>
         <div class="skill-detail-tool">Matlab / Python</div>
-        <div class="skill-level-bar">
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot active"></div>
-          <div class="skill-dot"></div>
-        </div>
       </div>
-      <p class="skill-detail-desc">
+      <p class="skill-detail-desc" data-i18n-en="Frequency analysis (FFT, STFT), digital filter design (FIR/IIR), signal modulation and demodulation. Applied on accelerometer data for motion feature extraction.">
         Analyse fréquentielle (FFT, STFT), conception de filtres numériques (FIR/IIR),
         modulation et démodulation de signaux. Application sur des données d'accéléromètre
         pour extraction de caractéristiques de mouvement.
@@ -154,19 +156,26 @@
 
   <!-- Projets liés -->
   <div class="related-section reveal-scale">
-    <h2 class="related-title">Projets associés</h2>
+    <h2 class="related-title" data-i18n-en="Related Projects">Projets associés</h2>
     <div class="related-grid">
+      <a href="../index.html#projets" class="related-card">
+        <span class="related-icon">🦾</span>
+        <div>
+          <div class="related-name" data-i18n-en="6-Axis Robotic Arm">Bras Robotique 6 Axes</div>
+          <div class="related-tech">STM32 · Cinématique · Registres</div>
+        </div>
+      </a>
       <a href="../index.html#projets" class="related-card">
         <span class="related-icon">⌚</span>
         <div>
-          <div class="related-name">Montre à Actimétrie Post-AVC</div>
+          <div class="related-name" data-i18n-en="Post-Stroke Actimetry Watch">Montre à Actimétrie Post-AVC</div>
           <div class="related-tech">Arduino · PCB · Accéléromètre</div>
         </div>
       </a>
       <a href="../index.html#projets" class="related-card">
         <span class="related-icon">⚡</span>
         <div>
-          <div class="related-name">Mesure d'Impédance Ultra-Faible Conso.</div>
+          <div class="related-name" data-i18n-en="Ultra-Low Power Impedance Measurement">Mesure d'Impédance Ultra-Faible Conso.</div>
           <div class="related-tech">FPGA · DAC · Delta-Sigma ADC</div>
         </div>
       </a>
@@ -176,5 +185,10 @@
 </main>
 
 <script src="../assets/js/animations.js"></script>
+<script src="../assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/scroll-float.js"></script>
 </body>
 </html>

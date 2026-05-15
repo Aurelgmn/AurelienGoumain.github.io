@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-9q54zQGx0QLxAz37SCGRptZ6wT4E+NPQuYOroxqmJtc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Expériences Professionnelles — Aurélien Goumain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="parcours.css">
+</head>
+<body>
+
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AG</a>
+    <a href="../index.html#parcours" class="nav-back"><span data-i18n="nav.back">← Retour</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="parcours-page">
+
+  <!-- Header -->
+  <div class="parcours-page-header reveal-scale">
+    <div class="parcours-page-icon">💼</div>
+    <div class="parcours-page-tag" data-i18n-en="Path">Parcours</div>
+    <h1 class="parcours-page-title"><span data-i18n-en="Professional">Expériences</span><br><span class="gradient-text" data-i18n-en="Experience">Professionnelles</span></h1>
+    <p class="parcours-page-desc" data-i18n-en="Internships in research and electronic design, entrepreneurial experiences, and teaching — a hands-on approach to engineering.">
+      Stages en recherche et conception électronique, expériences entrepreneuriales
+      et enseignement — une approche concrète de l'ingénierie.
+    </p>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline-full">
+
+    <div class="timeline-entry reveal-left">
+      <div class="entry-date">Avr 2026 — <span data-i18n-en="Present">Présent</span></div>
+      <h2 class="entry-title" data-i18n-en="Electronic Design Intern">Electronic Design Intern</h2>
+      <p class="entry-subtitle" data-i18n-en="University of Twente · Enschede, Netherlands · International research project">Université de Twente · Enschede, Pays-Bas · Projet de recherche international</p>
+      <ul class="entry-bullets">
+        <li data-i18n-en="Design of an FPGA PCB to evaluate the radiation tolerance of a target FPGA component, in an international research environment.">Conception d'un PCB FPGA pour évaluer la tolérance aux radiations d'un composant FPGA cible, dans un environnement de recherche international.</li>
+        <li data-i18n-en="Led the technical research phase: selection of the FPGA under test, sensors, protection circuits, and peripheral modules.">Conduite de la phase de recherche technique : sélection du FPGA sous test, capteurs, circuits de protection et modules périphériques.</li>
+        <li data-i18n-en="Designed the complete PCB architecture to host the FPGA and its peripherals under radiation-exposure conditions.">Conception de l'architecture PCB complète pour héberger le FPGA et ses périphériques sous conditions d'exposition aux radiations.</li>
+        <li data-i18n-en="Collaborated in English with an international team on electronic-component reliability.">Collaboration en anglais avec une équipe internationale sur la fiabilité des composants électroniques.</li>
+      </ul>
+      <div class="entry-tags">
+        <span>FPGA</span>
+        <span>PCB Design</span>
+        <span>KiCad</span>
+        <span>Radiation Testing</span>
+        <span>Recherche internationale</span>
+      </div>
+    </div>
+
+    <div class="timeline-entry reveal-right">
+      <div class="entry-date">Fév 2026 — Mar 2026</div>
+      <h2 class="entry-title" data-i18n-en="Analog IC Design Intern">Analog IC Design Intern</h2>
+      <p class="entry-subtitle" data-i18n-en="LIRMM · Montpellier, France · Research laboratory">LIRMM · Montpellier, France · Laboratoire de recherche</p>
+      <ul class="entry-bullets">
+        <li data-i18n-en="Design of an analog integrated circuit using only open-source EDA tools, in a project aimed at making IC fabrication more accessible.">Conception d'un circuit intégré analogique en utilisant exclusivement des outils EDA open-source, dans un projet visant à rendre la fabrication de CI plus accessible.</li>
+        <li data-i18n-en="Produced the schematic and physical layout of the circuit with Xschem (design) and Magic (layout), targeting the SkyWater 130nm open-source PDK.">Production du schématique et du layout physique du circuit avec Xschem (design) et Magic (layout), ciblant le PDK open-source SkyWater 130nm.</li>
+        <li data-i18n-en="Prepared the design for shared fabrication via Tiny Tapeout, reducing prototype cost to ~€500 versus ~€50,000 with standard proprietary tools.">Préparation du design pour fabrication partagée via Tiny Tapeout, réduisant le coût de prototypage à ~500 € contre ~50 000 € avec les outils propriétaires standards.</li>
+      </ul>
+      <div class="entry-tags">
+        <span>Xschem</span>
+        <span>Magic</span>
+        <span>SkyWater 130nm PDK</span>
+        <span>Tiny Tapeout</span>
+        <span>Analog IC Design</span>
+        <span>Open-source EDA</span>
+      </div>
+    </div>
+
+    <div class="timeline-entry reveal-left">
+      <div class="entry-date">2022 — <span data-i18n-en="Present">Présent</span></div>
+      <h2 class="entry-title" data-i18n-en="Private Tutor — Freelance">Professeur Particulier — Freelance</h2>
+      <p class="entry-subtitle" data-i18n-en="Mathematics & Physics · Middle and high school students">Mathématiques & Physique · Collégiens et lycéens</p>
+      <ul class="entry-bullets">
+        <li data-i18n-en="Teaching of science subjects with a focus on building confidence and methodical problem-solving.">Enseignement des sciences avec un focus sur la confiance en soi et la résolution méthodique de problèmes.</li>
+        <li data-i18n-en="Developed communication, pedagogy, and the ability to vulgarize complex concepts.">Développement de compétences en communication, pédagogie et capacité à vulgariser des concepts complexes.</li>
+      </ul>
+      <div class="entry-tags">
+        <span>Pédagogie</span>
+        <span>Mathématiques</span>
+        <span>Physique</span>
+        <span>Communication</span>
+      </div>
+    </div>
+
+    <div class="timeline-entry reveal-right">
+      <div class="entry-date">Juin 2024 — Juil 2024</div>
+      <h2 class="entry-title" data-i18n-en="Assembly Line Operator">Opérateur de Chaîne de Montage</h2>
+      <p class="entry-subtitle" data-i18n-en="Pink Mobility · Electric mobility manufacturer · Summer job">Pink Mobility · Fabricant de mobilité électrique · Job d'été</p>
+      <ul class="entry-bullets">
+        <li data-i18n-en="Assembly of electric scooters on a production line and inventory management.">Assemblage de trottinettes électriques sur chaîne de production et gestion des stocks.</li>
+        <li data-i18n-en="Direct exposure to hardware production processes and industrial quality constraints.">Exposition directe aux processus de production matérielle et aux contraintes qualité industrielles.</li>
+      </ul>
+      <div class="entry-tags">
+        <span>Production industrielle</span>
+        <span>Gestion des stocks</span>
+        <span>Qualité</span>
+      </div>
+    </div>
+
+    <div class="timeline-entry reveal-left">
+      <div class="entry-date">2023</div>
+      <h2 class="entry-title" data-i18n-en="Founder — E-commerce Brand">Fondateur — Marque E-commerce</h2>
+      <p class="entry-subtitle" data-i18n-en="Entrepreneurial project · Online poster store">Projet entrepreneurial · Boutique en ligne de posters</p>
+      <ul class="entry-bullets">
+        <li data-i18n-en="Designed and launched a Shopify poster store: product design, print partnerships, supplier coordination.">Conception et lancement d'une boutique Shopify de posters : design des produits, partenaires d'impression, coordination fournisseurs.</li>
+        <li data-i18n-en="Built and managed marketing campaigns on Google Ads, Meta (Facebook/Instagram) and TikTok.">Construction et gestion de campagnes marketing sur Google Ads, Meta (Facebook/Instagram) et TikTok.</li>
+        <li data-i18n-en="Produced promotional video content.">Production de contenus vidéo promotionnels.</li>
+      </ul>
+      <div class="entry-tags">
+        <span>Shopify</span>
+        <span>Google Ads</span>
+        <span>Meta Ads</span>
+        <span>TikTok</span>
+        <span>Création de contenu</span>
+        <span>Entrepreneuriat</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lien vers la page académique -->
+  <div class="switch-section reveal-scale">
+    <a href="academique.html" class="switch-card">
+      <span class="switch-card-icon">🎓</span>
+      <div>
+        <div>Voir ma formation académique</div>
+        <div class="switch-card-label">Polytech Montpellier, CUPGE, Baccalauréat →</div>
+      </div>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/scroll-float.js"></script>
+</body>
+</html>

@@ -2,71 +2,119 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-9q54zQGx0QLxAz37SCGRptZ6wT4E+NPQuYOroxqmJtc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Aurélien Goumain — Portfolio Ingénieur Microélectronique & Automatique</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
+  <script>document.documentElement.classList.add('preloading');</script>
 </head>
 <body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-grid" aria-hidden="true"></div>
+  <div class="preloader-rings" aria-hidden="true">
+    <span class="pl-ring pl-ring-1"></span>
+    <span class="pl-ring pl-ring-2"></span>
+    <span class="pl-ring pl-ring-3"></span>
+    <span class="pl-cross pl-cross-h"></span>
+    <span class="pl-cross pl-cross-v"></span>
+    <span class="pl-radar"></span>
+  </div>
+  <div class="preloader-hex pl-hex-left" id="preloader-hex-left" aria-hidden="true"></div>
+  <div class="preloader-hex pl-hex-right" id="preloader-hex-right" aria-hidden="true"></div>
+  <div class="preloader-inner" id="preloader-inner">
+    <div class="preloader-meta">
+      <span class="pl-tag">SYS</span>
+      <span class="pl-tag pl-tag-mint">v2.6.1</span>
+    </div>
+    <div class="preloader-logo">AG_SYSTEM</div>
+    <div class="preloader-counter">
+      <span class="pl-bracket">[</span><span id="preloader-num">0</span><span class="preloader-percent">%</span><span class="pl-bracket">]</span>
+    </div>
+    <div class="preloader-counter-ready" id="preloader-ready">
+      <span class="pl-check">✓</span>
+      <span>ACCESS&nbsp;GRANTED</span>
+    </div>
+    <div class="preloader-bar">
+      <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+      <span class="preloader-bar-glow" id="preloader-bar-glow"></span>
+    </div>
+    <div class="preloader-label" id="preloader-label">Initialisation</div>
+    <div class="preloader-stats">
+      <div class="pl-stat"><span class="pl-stat-name">CPU</span><span class="pl-stat-val" id="pl-stat-cpu">00%</span></div>
+      <div class="pl-stat"><span class="pl-stat-name">MEM</span><span class="pl-stat-val" id="pl-stat-mem">00%</span></div>
+      <div class="pl-stat"><span class="pl-stat-name">NET</span><span class="pl-stat-val" id="pl-stat-net">0Mb</span></div>
+    </div>
+  </div>
+  <div class="preloader-scanlines" aria-hidden="true"></div>
+  <div class="preloader-flash" id="preloader-flash" aria-hidden="true"></div>
+  <div class="preloader-logs" id="preloader-logs" aria-hidden="true"></div>
+</div>
+
+<!-- Arrière-plan LetterGlitch -->
+<div id="letter-glitch-bg" class="letter-glitch-bg" aria-hidden="true"></div>
+
+
+<!-- Barre de progression de scroll -->
+<div class="scroll-progress"></div>
+
+<!-- Glow qui suit la souris -->
+<div class="cursor-glow" aria-hidden="true"></div>
 
 <!-- Navigation -->
 <nav>
   <div class="nav-content">
     <div class="logo">AG</div>
     <ul class="nav-links">
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#parcours">Parcours</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#projets" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="#competences" data-i18n="nav.competences">Compétences</a></li>
+      <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="fr" aria-label="Français">
+        <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+        <span>FR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span>EN</span>
+      </button>
+    </div>
   </div>
 </nav>
-
-<!-- Particules de fond animées -->
-<div class="particles">
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-</div>
 
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-text">
-      <div class="hero-tag">Étudiant Ingénieur • Microélectronique & Automatique</div>
+      <div class="hero-tag" data-i18n="hero.tag">Microélectronique & Automatique</div>
       <h1>
-        Aurélien Goumain<br>
+        <span class="hero-name" data-scroll-float>Aurélien Goumain</span><br>
         <span class="gradient-text">Portfolio</span>
       </h1>
-      <p class="hero-desc">
-        Étudiant en 3ᵉ année à Polytech Montpellier, spécialisé en microélectronique et automatique.
-        Passionné par l'innovation technologique, je cherche à enrichir mon expérience à travers un stage cet été.
+      <p class="hero-desc" data-i18n="hero.desc">
+        Je suis passionné par l'intersection entre le hardware et l'Intelligence Artificielle, en particulier le déploiement d'algorithmes de Machine Learning sur microcontrôleurs (STM32) ou FPGA pour des applications robotiques (Edge AI).
       </p>
       <div class="hero-cta">
-        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-        <a href="cv.html" class="btn btn-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
-            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path>
-          </svg>
-          Voir mon CV
-        </a>
+        <a href="#projets" class="btn btn-primary" data-i18n="hero.cta.projects">Voir mes projets</a>
+        <a href="#competences" class="btn btn-secondary" data-i18n="hero.cta.skills">Mes compétences</a>
       </div>
     </div>
     <div class="hero-profile reveal-scale">
-      <div class="profile-image-container">
-        <img src="https://media.licdn.com/dms/image/v2/D4D03AQGnmyUIcacOZw/profile-displayphoto-scale_400_400/B4DZsb6udnIsAk-/0/1765699939135?e=1772668800&v=beta&t=nVhhPAabzhWxCLm565jhpvjNkDWAVz4y3dTGIKtMj64" alt="Aurélien Goumain" class="profile-image" id="profileImage">
+      <div class="profile-image-container" data-tilt>
+        <img src="moi_pro.png" alt="Aurélien Goumain" class="profile-image">
         <div class="profile-ring"></div>
         <div class="profile-ring"></div>
+        <div class="profile-ring profile-ring-dashed"></div>
       </div>
     </div>
   </div>
@@ -75,384 +123,287 @@
 <!-- Projects Section -->
 <section id="projets">
   <div class="section-header reveal-scale">
-    <div class="section-tag">Projets</div>
-    <h2 class="section-title">Réalisations Sélectionnées</h2>
+    <div class="section-tag" data-i18n="section.tag.projects">Projets</div>
+    <h2 class="section-title" data-i18n="section.title.projects">Réalisations Sélectionnées</h2>
   </div>
 
   <div class="projects-grid">
-    <div class="project-card reveal-scale">
+    <a href="projets/actinspace.html" class="project-card reveal-scale">
+      <div class="project-icon">🚀</div>
+      <div class="project-tags">
+        <span class="project-tag">Hackathon</span>
+        <span class="project-tag">CNES / ESA</span>
+        <span class="project-tag">Prix Jury</span>
+      </div>
+      <h3 class="project-title" data-i18n="project.actinspace.title">ActInSpace — Prix "Coup de Cœur"</h3>
+      <p class="project-desc" data-i18n="project.actinspace.desc">
+        Hackathon international organisé par le CNES et l'ESA. Proposition d'un standard de connecteur
+        unifié pour modules satellites (inspiré USB-C), récompensé par le prix "Coup de Cœur" du jury.
+      </p>
+      <div class="project-year">2026</div>
+    </a>
+
+    <a href="projets/bras-robotique.html" class="project-card reveal-scale">
+      <div class="project-icon">🦾</div>
+      <div class="project-tags">
+        <span class="project-tag">STM32</span>
+        <span class="project-tag">Cinématique</span>
+        <span class="project-tag">Embarqué</span>
+      </div>
+      <h3 class="project-title" data-i18n="project.bras.title">Bras Robotique 2 Axes</h3>
+      <p class="project-desc" data-i18n="project.bras.desc">
+        Contrôle de 2 servomoteurs via STM32 (CubeIDE, registres bas niveau). Implémentation
+        des cinématiques directe et inverse pour le contrôle de trajectoire.
+      </p>
+      <div class="project-year">2025</div>
+    </a>
+
+    <a href="projets/montre-actimetrie.html" class="project-card reveal-scale">
       <div class="project-icon">⌚</div>
       <div class="project-tags">
         <span class="project-tag">Arduino</span>
         <span class="project-tag">Accéléromètre</span>
         <span class="project-tag">PCB</span>
       </div>
-      <h3 class="project-title">Montre à Actimétrie Post-AVC</h3>
-      <p class="project-desc">
-        Projet encadré : Conception d'une montre à actimétrie pour suivi post-AVC incluant programmation d'accéléromètre,
-        écran d'affichage, soudures et PCB.
+      <h3 class="project-title" data-i18n="project.montre.title">Montre à Actimétrie Post-AVC</h3>
+      <p class="project-desc" data-i18n="project.montre.desc">
+        Conception d'une montre connectée pour suivi post-AVC : programmation d'accéléromètre,
+        intégration d'un écran OLED, soudures et routage PCB.
       </p>
       <div class="project-year">2024</div>
-    </div>
+    </a>
 
-    <div class="project-card reveal-scale">
+    <a href="projets/mesure-impedance.html" class="project-card reveal-scale">
       <div class="project-icon">⚡</div>
       <div class="project-tags">
         <span class="project-tag">FPGA</span>
         <span class="project-tag">DAC</span>
         <span class="project-tag">Delta-Sigma</span>
       </div>
-      <h3 class="project-title">Mesure d'Impédance Ultra-Faible Consommation</h3>
-      <p class="project-desc">
-        Conception d'un front-end pour DAC implémenté sur FPGA et ADC en Delta-Sigma pour mesure d'impédance
-        optimisée en consommation énergétique.
+      <h3 class="project-title" data-i18n="project.impedance.title">Mesure d'Impédance Ultra-Faible Consommation</h3>
+      <p class="project-desc" data-i18n="project.impedance.desc">
+        Conception d'un front-end analogique pour DAC implémenté sur FPGA et ADC Delta-Sigma,
+        optimisé pour une consommation énergétique minimale.
       </p>
       <div class="project-year">2024</div>
-    </div>
+    </a>
 
-    <div class="project-card reveal-scale">
-      <div class="project-icon">🛍️</div>
+    <a href="projets/reconnaissance-chiffres.html" class="project-card reveal-scale">
+      <div class="project-icon">🧠</div>
       <div class="project-tags">
-        <span class="project-tag">E-commerce</span>
-        <span class="project-tag">Marketing</span>
-        <span class="project-tag">Shopify</span>
+        <span class="project-tag">Machine Learning</span>
+        <span class="project-tag">MATLAB</span>
+        <span class="project-tag">Réseau de neurones</span>
       </div>
-      <h3 class="project-title">Création de Marque — Posters Design</h3>
-      <p class="project-desc">
-        Conception et lancement d'une boutique Shopify de posters. Gestion complète : design, impression,
-        stratégie marketing (Google Ads, réseaux sociaux), création de contenu.
+      <h3 class="project-title" data-i18n="project.ml.title">Reconnaissance de Chiffres Manuscrits</h3>
+      <p class="project-desc" data-i18n="project.ml.desc">
+        Conception, entraînement et évaluation d'un réseau de neurones en MATLAB pour la
+        classification de chiffres manuscrits. Prétraitement des données et analyse des performances.
       </p>
-      <div class="project-year">2023</div>
-    </div>
+      <div class="project-year">2025</div>
+    </a>
+
+    <a href="projets/serveur-personnel.html" class="project-card reveal-scale">
+      <div class="project-icon">🍓</div>
+      <div class="project-tags">
+        <span class="project-tag">Raspberry Pi</span>
+        <span class="project-tag">Docker</span>
+        <span class="project-tag">Self-Hosting</span>
+      </div>
+      <h3 class="project-title" data-i18n="project.server.title">Serveur Personnel - Automatisations & Self-Hosting</h3>
+      <p class="project-desc" data-i18n="project.server.desc">
+        Hébergement de services sur Raspberry Pi : workflows n8n, scripts Python d'automatisation.
+        Gestion de conteneurs Docker, intégration d'APIs REST, manipulation de données JSON
+        et administration réseau (DNS, reverse proxy, ports).
+      </p>
+      <div class="project-year">2026</div>
+    </a>
   </div>
 </section>
 
 <!-- Skills Section -->
 <section id="competences">
   <div class="section-header reveal-scale">
-    <div class="section-tag">Compétences</div>
-    <h2 class="section-title">Expertise Technique</h2>
+    <div class="section-tag" data-i18n="section.tag.skills">Compétences</div>
+    <h2 class="section-title" data-i18n="section.title.skills">Expertise Technique</h2>
   </div>
 
   <div class="skills-grid">
     <a href="skills/microelectronique.html" class="skill-card reveal-left">
       <div class="skill-icon">⚡</div>
-      <h3 class="skill-title">Microélectronique & Automatique</h3>
+      <h3 class="skill-title" data-i18n="skill.microelec.title">Microélectronique & Automatique</h3>
       <div class="skill-list">
         <div class="skill-item">
+          <span class="skill-name">IC Design (Xschem / Magic)</span>
+        </div>
+        <div class="skill-item">
           <span class="skill-name">Conception PCB (KiCad)</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">FPGA (Quartus)</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Arduino / Microcontrôleurs</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Cadence (Design)</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-            <div class="skill-dot"></div>
-          </div>
+          <span class="skill-name">STM32 / Microcontrôleurs</span>
         </div>
         <div class="skill-item">
           <span class="skill-name">Traitement du Signal</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
       </div>
     </a>
 
     <a href="skills/ia-reseaux.html" class="skill-card reveal-scale">
       <div class="skill-icon">🧠</div>
-      <h3 class="skill-title">IA & Réseaux</h3>
+      <h3 class="skill-title" data-i18n="skill.ai.title">IA & Réseaux</h3>
       <div class="skill-list">
         <div class="skill-item">
           <span class="skill-name">Intelligence Artificielle</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Réseaux Informatiques</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Bases de Données</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Matlab / Simulink</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">Probabilités & Statistiques</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
-        </div>
+
       </div>
     </a>
 
     <a href="skills/softskills.html" class="skill-card reveal-scale">
       <div class="skill-icon">🤝</div>
-      <h3 class="skill-title">Soft Skills</h3>
+      <h3 class="skill-title" data-i18n="skill.soft.title">Soft Skills</h3>
       <div class="skill-list">
         <div class="skill-item">
           <span class="skill-name">Travail en équipe</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Autonomie</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Pédagogie</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Curiosité / Veille</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Gestion du stress</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Management de Projet</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Anglais (B2)</span>
         </div>
       </div>
     </a>
 
     <a href="skills/programmation.html" class="skill-card reveal-right">
       <div class="skill-icon">💻</div>
-      <h3 class="skill-title">Programmation & Outils</h3>
+      <h3 class="skill-title" data-i18n="skill.prog.title">Programmation & Outils</h3>
       <div class="skill-list">
         <div class="skill-item">
           <span class="skill-name">C / Python</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Linux</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Eclipse / Arduino IDE</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-          </div>
+          <span class="skill-name">STM32CubeIDE / Arduino IDE</span>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Management de Projet</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
+          <span class="skill-name">Docker</span>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Anglais (B2)</span>
-          <div class="skill-level">
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot active"></div>
-            <div class="skill-dot"></div>
-          </div>
+          <span class="skill-name">API REST / HTTP</span>
         </div>
       </div>
     </a>
   </div>
 </section>
 
-<!-- Experience Section -->
+<!-- Parcours Section -->
 <section id="parcours">
   <div class="section-header reveal-scale">
-    <div class="section-tag">Parcours</div>
-    <h2 class="section-title">Formation & Expériences</h2>
+    <div class="section-tag" data-i18n="section.tag.path">Parcours</div>
+    <h2 class="section-title" data-i18n="section.title.path">Formation & Expériences</h2>
   </div>
 
-  <div class="timeline">
-    <div class="timeline-item reveal-left">
-      <div class="timeline-date">Sep 2024 — Présent</div>
-      <h3 class="timeline-title">Polytech Montpellier — MEA</h3>
-      <p class="timeline-subtitle">École d'Ingénieur — Montpellier, France</p>
-      <p class="timeline-desc">
-        3ᵉ année en Microélectronique & Automatique. Projets techniques incluant conception de montre à actimétrie
-        post-AVC et mesure d'impédance ultra-faible consommation.
-      </p>
-    </div>
+  <div class="parcours-cards-grid">
 
-    <div class="timeline-item reveal-right">
-      <div class="timeline-date">Juin — Juillet 2024</div>
-      <h3 class="timeline-title">Ouvrier Polyvalent</h3>
-      <p class="timeline-subtitle">PinkMobility — France</p>
-      <p class="timeline-desc">
-        Travail sur chaîne de montage, préparation des commandes et gestion du stock. Développement de compétences
-        en organisation et rigueur.
-      </p>
-    </div>
+    <a href="parcours/academique.html" class="parcours-nav-card reveal-left">
+      <div class="parcours-nav-icon">🎓</div>
+      <div class="parcours-nav-content">
+        <h3 class="parcours-nav-title" data-i18n="parcours.acad.title">Formation Académique</h3>
+        <div class="parcours-nav-list">
+          <div class="parcours-nav-item">
+            <span class="parcours-nav-date">Sep 2024 — <span data-i18n="parcours.now">Présent</span></span>
+            <span class="parcours-nav-name">Polytech Montpellier — MEA</span>
+          </div>
+          <div class="parcours-nav-item">
+            <span class="parcours-nav-date">Sep 2022 — Juin 2024</span>
+            <span class="parcours-nav-name">CUPGE — Université Paul Sabatier</span>
+          </div>
+          <div class="parcours-nav-item">
+            <span class="parcours-nav-date">Sep 2019 — Juin 2022</span>
+            <span class="parcours-nav-name">Lycée Descartes — Baccalauréat</span>
+          </div>
+        </div>
+        <span class="parcours-nav-cta" data-i18n="parcours.detail">Voir le détail →</span>
+      </div>
+    </a>
 
-    <div class="timeline-item reveal-left">
-      <div class="timeline-date">2023 — 2024</div>
-      <h3 class="timeline-title">Création de Marque E-commerce</h3>
-      <p class="timeline-subtitle">Projet Personnel — En ligne</p>
-      <p class="timeline-desc">
-        Conception et lancement d'une boutique Shopify de posters. Gestion complète du design, sous-traitance
-        d'impression, stratégie marketing (Google Ads, réseaux sociaux), création de contenu vidéo.
-      </p>
-    </div>
+    <a href="parcours/professionnel.html" class="parcours-nav-card reveal-right">
+      <div class="parcours-nav-icon">💼</div>
+      <div class="parcours-nav-content">
+        <h3 class="parcours-nav-title" data-i18n="parcours.pro.title">Expériences Professionnelles</h3>
+        <div class="parcours-nav-list">
+          <div class="parcours-nav-item">
+            <span class="parcours-nav-date">Avr 2026 — <span data-i18n="parcours.now">Présent</span></span>
+            <span class="parcours-nav-name">Electronic Design Intern — Univ. Twente</span>
+          </div>
+          <div class="parcours-nav-item">
+            <span class="parcours-nav-date">Fév — Mar 2026</span>
+            <span class="parcours-nav-name">Analog IC Design Intern — LIRMM</span>
+          </div>
+          <div class="parcours-nav-item">
+            <span class="parcours-nav-date">2022 — <span data-i18n="parcours.now">Présent</span></span>
+            <span class="parcours-nav-name">Professeur Particulier — Freelance</span>
+          </div>
+        </div>
+        <span class="parcours-nav-cta" data-i18n="parcours.detail">Voir le détail →</span>
+      </div>
+    </a>
 
-    <div class="timeline-item reveal-right">
-      <div class="timeline-date">Sep 2022 — Juin 2024</div>
-      <h3 class="timeline-title">CUPGE — Université Paul Sabatier</h3>
-      <p class="timeline-subtitle">Classes Préparatoires — Toulouse, France</p>
-      <p class="timeline-desc">
-        Cycle Universitaire Préparatoire aux Grandes Écoles. Formation en mathématiques, physique et sciences de l'ingénieur.
-      </p>
-    </div>
-
-    <div class="timeline-item reveal-left">
-      <div class="timeline-date">En cours</div>
-      <h3 class="timeline-title">Professeur Particulier</h3>
-      <p class="timeline-subtitle">Enseignement Privé</p>
-      <p class="timeline-desc">
-        Enseignement des sciences à des collégiens avec accent sur la confiance en soi, la rigueur et la pédagogie adaptée.
-      </p>
-    </div>
   </div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
   <div class="section-header reveal-scale">
-    <div class="section-tag">Contact</div>
-    <h2 class="section-title">Travaillons Ensemble</h2>
-    <p class="section-desc">Actuellement à la recherche d'un stage pour l'été 2026</p>
+    <div class="section-tag" data-i18n="section.tag.contact">Contact</div>
+    <h2 class="section-title" data-i18n="section.title.contact">Me Retrouver</h2>
   </div>
 
   <div class="contact-grid">
     <a href="mailto:goumaina@gmail.com" class="contact-card reveal-scale">
       <div class="contact-icon">✉️</div>
-      <div class="contact-label">Email</div>
+      <div class="contact-label" data-i18n="contact.email">Email</div>
       <div class="contact-value">goumaina@gmail.com</div>
     </a>
 
-    <a href="tel:+33619776495" class="contact-card reveal-scale">
-      <div class="contact-icon">📱</div>
-      <div class="contact-label">Téléphone</div>
-      <div class="contact-value">06 19 77 64 95</div>
-    </a>
+    
 
-    <a href="https://www.linkedin.com/in/aur%C3%A9lien-goumain-a0a535223/" target="_blank" class="contact-card reveal-scale">
+    <a href="https://www.linkedin.com/in/aur%C3%A9lien-goumain-a0a535223/" target="_blank" class="contact-card reveal-scale" rel="noopener noreferrer">
       <div class="contact-icon">💼</div>
-      <div class="contact-label">LinkedIn</div>
+      <div class="contact-label" data-i18n="contact.linkedin">LinkedIn</div>
       <div class="contact-value">Aurélien Goumain</div>
     </a>
 
-    <a href="https://github.com/Aurelgmn" target="_blank" class="contact-card reveal-scale">
+    <a href="https://github.com/Aurelgmn" target="_blank" class="contact-card reveal-scale" rel="noopener noreferrer">
       <div class="contact-icon">🐙</div>
-      <div class="contact-label">GitHub</div>
+      <div class="contact-label" data-i18n="contact.github">GitHub</div>
       <div class="contact-value">Aurelgmn</div>
     </a>
   </div>
@@ -460,16 +411,21 @@
 
 <!-- Footer -->
 <footer>
-  <p>© 2026 Aurélien Goumain — Étudiant Ingénieur MEA</p>
+  <p data-i18n="footer.copyright">© 2026 Aurélien Goumain</p>
   <div class="footer-links">
     <a href="mailto:aurelien.goumain@etu.umontpellier.fr" title="Email">✉️</a>
-    <a href="https://linkedin.com/in/aurelien-goumain" target="_blank" title="LinkedIn">💼</a>
-    <a href="tel:+33619776495" title="Téléphone">📱</a>
+    <a href="https://linkedin.com/in/aurelien-goumain" target="_blank" title="LinkedIn" rel="noopener noreferrer">💼</a>
   </div>
 </footer>
 
+<script src="assets/js/preloader.js"></script>
 <script src="assets/js/animations.js"></script>
 <script src="assets/js/profile.js"></script>
 
+<script src="assets/js/letter-glitch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/scroll-float.js"></script>
 </body>
 </html>
